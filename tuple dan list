@@ -1,0 +1,12 @@
+#Nurrisma
+#D0425308
+
+#List
+buah = [“semangka”, ”nangka”, “anggur” #Bisa diubah
+buah[1] = “anggur"   # diubah
+bauh.append(“jambu”) # ditambah
+print(buah
+
+#Tuple
+Buah = (“apel”, “meloh”, ”nangka”)
+Buah[1] = “durian”   # ERROR, tuple tidak bisa diubah
