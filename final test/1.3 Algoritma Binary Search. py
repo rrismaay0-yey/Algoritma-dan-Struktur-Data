@@ -1,1 +1,10 @@
+def binary_search(data, target):
+    l, r = 0, len(data)-1
+    while l <= r:
+        m = (l + r)//2
+        if data[m] == target: return m
+        l, r = (m+1, r) if data[m] < target else (l, m-1)
+    return -1
+
+print(binary_search([10,20,30,40], 30))  # Output: 2
 
