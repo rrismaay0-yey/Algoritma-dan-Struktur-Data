@@ -1,4 +1,4 @@
-# tipe data Array satu dimensi
+# Tipe data Array satu dimensi
 
 # Membuat array berisi nilai siswa
 nilai_siswa = [78, 85, 90, 66, 88]
