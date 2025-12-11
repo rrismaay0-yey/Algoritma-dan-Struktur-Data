@@ -1,1 +1,38 @@
+class Buah:
+    def __init__(self):
+        self.jenis_data = None
+        self.data = None
+
+    def set_nama(self, nama):
+        self.jenis_data = "Nama Buah"
+        self.data = nama
+
+    def set_harga(self, harga):
+        self.jenis_data = "Harga Buah"
+        self.data = harga
+
+    def set_berat(self, berat):
+        self.jenis_data = "Berat Buah"
+        self.data = berat
+
+    def tampilkan(self):
+        print("Jenis Data :", self.jenis_data)
+        print("Isi        :", self.data)
+        print()
+
+
+# ------------ Contoh penggunaan ------------
+b = Buah()
+
+# Nama buah
+b.set_nama("Mangga Harum Manis")
+b.tampilkan()
+
+# Harga buah
+b.set_harga(30000)
+b.tampilkan()
+
+# Berat buah
+b.set_berat(2.5)
+b.tampilkan()
 
