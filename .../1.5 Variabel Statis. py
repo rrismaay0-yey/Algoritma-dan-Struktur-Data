@@ -1,0 +1,60 @@
+#class Hewan:
+    # ------- Variabel Statis (Dimiliki Class) -------
+    jumlah_hewan = 0
+    total_berat_semua = 0.0
+    daftar_hewan = []
+
+    def __init__(self, nama, jenis, berat):
+        # ------- Variabel Biasa (Dimiliki Objek) -------
+        self.nama = nama
+        self.jenis = jenis
+        self.berat = berat
+
+        # ------- Update Variabel Statis -------
+        Hewan.jumlah_hewan += 1
+        Hewan.total_berat_semua += berat
+        Hewan.daftar_hewan.append(self)
+
+    def info(self):
+        print(f"[INFO] Nama: {self.nama} | Jenis: {self.jenis} | Berat: {self.berat} kg")
+
+    @staticmethod
+    def rata_rata_berat():
+        if Hewan.jumlah_hewan == 0:
+            return 0
+        return Hewan.total_berat_semua / Hewan.jumlah_hewan
+
+    @staticmethod
+    def laporan_hewan():
+        print("\n===== LAPORAN DATA HEWAN =====")
+        print(f"Total Hewan Terdaftar : {Hewan.jumlah_hewan}")
+        print(f"Total Berat Semua     : {Hewan.total_berat_semua} kg")
+        print(f"Rata-Rata Berat       : {Hewan.rata_rata_berat():.2f} kg\n")
+
+        print("----- Daftar Hewan -----")
+        for h in Hewan.daftar_hewan:
+            print(f"- {h.nama} ({h.jenis}), Berat: {h.berat} kg")
+
+        print("\n================================\n")
+
+
+# ==========================================
+#                  MAIN
+# ==========================================
+
+hewan1 = Hewan("Mocii", "Kucing", 4.2)
+hewan2 = Hewan("Xici", "Anjing", 12.5)
+hewan3 = Hewan("Veyuu", "Kelinci", 2.1)
+hewan4 = Hewan("Celo", "Burung", 0.8)
+hewan5 = Hewan("Lufi", "Kura-kura", 3.4)
+
+# Tampilkan info masing-masing hewan
+hewan1.info()
+hewan2.info()
+hewan3.info()
+hewan4.info()
+hewan5.info()
+
+# Tampilkan laporan besar menggunakan variabel statis
+Hewan.laporan_hewan()
+
