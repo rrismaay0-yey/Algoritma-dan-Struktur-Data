@@ -1,1 +1,12 @@
+# Array 1 Dimensi 
+# Array nama bunga
+bunga = ["Mawar", "Melati", "Anggrek", "Lili"]
+
+# Operasi cepat
+print("Daftar bunga:", bunga)
+print("Bunga ke-3:", bunga[2])
+bunga.insert(1, "Kamboja")  # Tambah di posisi kedua
+bunga.pop()  # Hapus yang terakhir
+
+print("Daftar baru:", bunga)
 
