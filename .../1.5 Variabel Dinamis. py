@@ -1,0 +1,107 @@
+#class Hewan:
+    def __init__(self, nama, jenis, berat):
+        self.nama = nama
+        self.jenis = jenis
+        self.berat = berat
+
+    def info(self):
+        print(f"Nama: {self.nama} | Jenis: {self.jenis} | Berat: {self.berat} kg")
+
+
+# ===== Variabel Dinamis =====
+# List berikut bisa bertambah atau berkurang kapan saja (DINAMIS)
+daftar_hewan = []
+
+
+def tambah_hewan():
+    print("\n=== TAMBAH HEWAN ===")
+    nama = input("Nama hewan    : ")
+    jenis = input("Jenis hewan   : ")
+    berat = float(input("Berat hewan   : "))
+    
+    hewan_baru = Hewan(nama, jenis, berat)
+    daftar_hewan.append(hewan_baru)
+
+    print(f"Hewan '{nama}' berhasil ditambahkan!\n")
+
+
+def tampilkan_hewan():
+    print("\n=== DAFTAR HEWAN ===")
+    if not daftar_hewan:
+        print("Belum ada hewan terdaftar.\n")
+        return
+
+    for i, h in enumerate(daftar_hewan):
+        print(f"{i+1}. ", end="")
+        h.info()
+    print()
+
+
+def hapus_hewan():
+    print("\n=== HAPUS HEWAN ===")
+    tampilkan_hewan()
+
+    if not daftar_hewan:
+        return
+
+    pilih = int(input("Pilih nomor hewan yang akan dihapus: ")) - 1
+
+    if 0 <= pilih < len(daftar_hewan):
+        nama = daftar_hewan[pilih].nama
+        del daftar_hewan[pilih]
+        print(f"Hewan '{nama}' telah dihapus.\n")
+    else:
+        print("Nomor tidak valid!\n")
+
+
+def ubah_data_hewan():
+    print("\n=== UBAH DATA HEWAN ===")
+    tampilkan_hewan()
+
+    if not daftar_hewan:
+        return
+
+    pilih = int(input("Pilih nomor hewan yang akan diubah: ")) - 1
+
+    if 0 <= pilih < len(daftar_hewan):
+        h = daftar_hewan[pilih]
+
+        print(f"Mengubah data '{h.nama}'")
+        h.nama = input("Nama baru  : ")
+        h.jenis = input("Jenis baru : ")
+        h.berat = float(input("Berat baru : "))
+        
+        print("Data hewan berhasil diubah!\n")
+    else:
+        print("Nomor tidak valid!\n")
+
+
+def menu():
+    while True:
+        print("===== MENU HEWAN DINAMIS =====")
+        print("1. Tambah Hewan")
+        print("2. Tampilkan Hewan")
+        print("3. Hapus Hewan")
+        print("4. Ubah Data Hewan")
+        print("5. Keluar")
+
+        pilihan = input("Pilih menu: ")
+
+        if pilihan == "1":
+            tambah_hewan()
+        elif pilihan == "2":
+            tampilkan_hewan()
+        elif pilihan == "3":
+            hapus_hewan()
+        elif pilihan == "4":
+            ubah_data_hewan()
+        elif pilihan == "5":
+            print("Terima kasih! Program selesai.")
+            break
+        else:
+            print("Pilihan tidak dikenal!\n")
+
+
+# ===== MAIN PROGRAM =====
+menu()
+
