@@ -1,1 +1,9 @@
+# integer
+apel = 25
+jeruk = 18
+mangga = 12
+
+total_buah = apel + jeruk + mangga
+
+print("Total buah:", total_buah)
 
