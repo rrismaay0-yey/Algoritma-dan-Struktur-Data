@@ -6,6 +6,9 @@ buah.append("pisang")  # tambah item
 print("List:", buah)
 
 # String 
+nama = "Amay"
+pesan = "Halo, " + nama + "!"
+print("String:", pesan)
 
 
 
