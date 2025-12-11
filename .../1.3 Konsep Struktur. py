@@ -1,0 +1,30 @@
+# Konsep Struktur 
+class Mahasiswa:
+    def __init__(self, nama, nim, jurusan, ipk):
+        self.nama = nama
+        self.nim = nim
+        self.jurusan = jurusan
+        self.ipk = ipk
+
+# Membuat objek yang mewakili data mahasiswa
+mhs1 = Mahasiswa("Jaehyun", "23011234", "Informatika", 3.75)
+mhs2 = Mahasiswa("Kim mingyu", "23014567", "Sistem Informasi", 3.90)
+
+# Menampilkan data
+print("Data Mahasiswa 1:")
+print("Nama   :", mhs1.nama)
+print("NIM    :", mhs1.nim)
+print("Jurusan:", mhs1.jurusan)
+print("IPK    :", mhs1.ipk)
+
+print("\nData Mahasiswa 2:")
+print("Nama   :", mhs2.nama)
+print("NIM    :", mhs2.nim)
+print("Jurusan:", mhs2.jurusan)
+print("IPK    :", mhs2.ipk)
+
+# Mengubah data (contoh edit NIM)
+mhs1.nim = "23019888"
+print("\nSetelah NIM mahasiswa 1 diperbarui:")
+print("NIM Baru:", mhs1.nim)
+
