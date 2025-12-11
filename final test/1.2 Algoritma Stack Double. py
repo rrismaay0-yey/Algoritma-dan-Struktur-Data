@@ -1,1 +1,87 @@
+class StackDouble:
+    def __init__(self):
+        # Inisialisasi dua list untuk menyimpan integer dan string
+        self.stack_int = []
+        self.stack_str = []
+
+    # Operasi Push: tambah data sesuai tipe
+    def push(self, data):
+        if isinstance(data, int):
+            self.stack_int.append(data)
+            print(f"Data integer {data} ditambahkan ke stack int")
+        elif isinstance(data, str):
+            self.stack_str.append(data)
+            print(f"Data string '{data}' ditambahkan ke stack str")
+        else:
+            print(f"Tipe data {type(data)} tidak didukung!")
+
+    # Operasi Pop: hapus dan kembalikan data teratas sesuai tipe
+    def pop(self, tipe):
+        if tipe == "int":
+            if not self.isEmpty("int"):
+                return f"Data integer {self.stack_int.pop()} dihapus"
+            else:
+                return "Stack integer kosong!"
+        elif tipe == "str":
+            if not self.isEmpty("str"):
+                return f"Data string '{self.stack_str.pop()}' dihapus"
+            else:
+                return "Stack string kosong!"
+        else:
+            return "Tipe tidak valid! Gunakan 'int' atau 'str'"
+
+    # Operasi Peek: lihat data teratas tanpa menghapus
+    def peek(self, tipe):
+        if tipe == "int":
+            if not self.isEmpty("int"):
+                return f"Data teratas stack int: {self.stack_int[-1]}"
+            else:
+                return "Stack integer kosong!"
+        elif tipe == "str":
+            if not self.isEmpty("str"):
+                return f"Data teratas stack str: '{self.stack_str[-1]}'"
+            else:
+                return "Stack string kosong!"
+        else:
+            return "Tipe tidak valid! Gunakan 'int' atau 'str'"
+
+    # Cek apakah stack kosong
+    def isEmpty(self, tipe):
+        if tipe == "int":
+            return len(self.stack_int) == 0
+        elif tipe == "str":
+            return len(self.stack_str) == 0
+        else:
+            return False
+
+    # Tampilkan semua data di stack
+    def tampilkan_stack(self):
+        print("\nIsi Stack Integer:", self.stack_int)
+        print("Isi Stack String:", self.stack_str)
+
+
+# Contoh Penggunaan
+if __name__ == "__main__":
+    stack = StackDouble()
+
+    # Push data berbagai tipe
+    stack.push(10)
+    stack.push("halo")
+    stack.push(20)
+    stack.push("selamat pagi")
+    stack.push(3.14)  # Tipe float tidak didukung
+
+    # Tampilkan stack
+    stack.tampilkan_stack()
+
+    # Peek data teratas
+    print("\n" + stack.peek("int"))
+    print(stack.peek("str"))
+
+    # Pop data
+    print("\n" + stack.pop("int"))
+    print(stack.pop("str"))
+
+    # Tampilkan stack setelah pop
+    stack.tampilkan_stack()
 
