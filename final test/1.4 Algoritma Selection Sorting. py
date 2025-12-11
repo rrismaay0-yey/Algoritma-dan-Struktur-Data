@@ -1,1 +1,32 @@
+# Selection Sorting 
+def selection_sort_nama(nama_orang):
+    n = len(nama_orang)
+    
+    # Loop melalui semua nama kecuali yang terakhir (sudah terurut)
+    for i in range(n - 1):
+        # Anggap nama pertama dari bagian belum terurut sebagai yang paling depan abjad
+        indeks_terdepan = i
+        print(f"\nLangkah {i+1}: Daftar nama saat ini: {nama_orang}")
+        print(f"  Anggap indeks {i} ('{nama_orang[i]}') sebagai paling depan abjad")
 
+        # Cari nama paling depan abjad di bagian belum terurut (i+1 sampai akhir)
+        for j in range(i + 1, n):
+            # Bandingkan nama tanpa memperhatikan huruf besar/kecil
+            if nama_orang[j].lower() < nama_orang[indeks_terdepan].lower():
+                indeks_terdepan = j
+                print(f"  Ditemukan yang lebih depan: indeks {j} ('{nama_orang[j]}')")
+
+        # Tukar nama paling depan dengan nama pertama bagian belum terurut
+        if indeks_terdepan != i:
+            nama_orang[i], nama_orang[indeks_terdepan] = nama_orang[indeks_terdepan], nama_orang[i]
+            print(f"  Tukar indeks {i} dan {indeks_terdepan}: {nama_orang}")
+        else:
+            print(f"  Tidak perlu tukar — '{nama_orang[i]}' sudah paling depan")
+
+
+# Contoh Penggunaan
+if __name__ == "__main__":
+    daftar_nama = ["asa", "bese", "disi", "jini", "zipa", "sipi"]
+    print(f"Daftar nama awal: {daftar_nama}")
+    selection_sort_nama(daftar_nama)
+    print(f"\nDaftar nama terurut (A-Z): {daftar_nama}")
