@@ -1,0 +1,25 @@
+#include <stdio.h>
+union Data {
+    int angka;
+    float pecahan;
+    char huruf;
+};
+
+int main() {
+    union Data nilai;
+
+    // Menyimpan integer
+    nilai.angka = 20;
+    printf("Isi sebagai angka  : %d\n", nilai.angka);
+
+    // Menyimpan float (ini akan menimpa nilai integer sebelumnya)
+    nilai.pecahan = 7.5;
+    printf("Isi sebagai float  : %.2f\n", nilai.pecahan);
+
+    // Menyimpan karakter (ini menimpa nilai float sebelumnya)
+    nilai.huruf = 'A';
+    printf("Isi sebagai huruf  : %c\n", nilai.huruf);
+
+    return 0;
+}
+
