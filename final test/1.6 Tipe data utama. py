@@ -1,1 +1,13 @@
+# Tipe data utama
+
+# List
+buah = ["apel", "jeruk", "mangga"]
+buah.append("pisang")  # tambah item
+print("List:", buah)
+
+# String 
+
+
+
+
 
