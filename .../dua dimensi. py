@@ -1,1 +1,26 @@
+# Tipe data Array dua dimensi 
 
+Suhu ruangan =[
+  [25.3,27.1,24.8],  # Ruang 1 
+  [26.0,28.4,25.2],  # Ruang 2
+  [24.7,26.5,23.9],  # Ruang 3
+  [25.9,27.8,24.5],  # Tuang 4
+]
+
+# Menampilkan data suhu 
+print("Data Suhu Ruangan (Pagi - Siang - Malam):\n")
+for i in range(len(suhu_ruangan)):
+  print(f“Ruang {i+1}: {suhu_ruangan[i]}”)
+
+# Mengambil data spesifik 
+print("\nSuhu Ruang 3 pada malam hari:”, suhu_ruangan[2][2])
+
+# Mengubah data suhu (misal ada revisi)
+suhu_ruangan[0][1] = 27.5  # Mengubah suhu ruang 1 siang
+print("\nSetelah revisi suhu Ruang 1 (siang):", suhu_ruangan[0])
+
+# Menambah ruangan baru
+suhu_ruangan.append([26.2, 28.0, 25.1])
+print("\nSetelah menambah ruangan baru:")
+for i in range(len(suhu_ruangan)):
+    print(f"Ruang {i+1}: {suhu_ruangan[i]}")
