@@ -1,1 +1,49 @@
+# Array 3 Dimensi:
+# Dimensi 1 = Gedung
+# Dimensi 2 = Lantai
+# Dimensi 3 = Waktu (0 = pagi, 1 = malam)
+
+suhu_gedung = [
+    [   # Gedung A
+        [25.1, 23.9],   # Lantai 1
+        [26.0, 24.5],   # Lantai 2
+        [26.8, 25.0],   # Lantai 3
+        [27.2, 25.6]    # Lantai 4
+    ],
+    [   # Gedung B
+        [24.9, 23.5],
+        [25.7, 24.0],
+        [26.3, 24.8],
+        [26.9, 25.3]
+    ],
+    [   # Gedung C
+        [25.4, 24.1],
+        [26.2, 24.7],
+        [27.0, 25.4],
+        [27.5, 26.0]
+    ]
+]
+
+# Menampilkan seluruh data suhu
+print("Data Suhu 3D (Gedung → Lantai → [Pagi, Malam]):\n")
+for g in range(len(suhu_gedung)):
+    print(f"Gedung {g+1}:")
+    for l in range(len(suhu_gedung[g])):
+        print(f"  Lantai {l+1}: {suhu_gedung[g][l]}")
+    print()
+
+# Mengakses data tertentu
+print("Suhu Gedung B, Lantai 3, Malam:")
+print(suhu_gedung[1][2][1])
+
+# Mengubah data (misal revisi suhu Gedung C lantai 2 pagi)
+suhu_gedung[2][1][0] = 26.5
+print("\nSetelah revisi suhu Gedung C lantai 2 pagi:")
+print(suhu_gedung[2][1])
+
+# Menambah lantai baru di Gedung A
+suhu_gedung[0].append([28.0, 26.4])
+print("\nSetelah menambah lantai baru di Gedung A:")
+for lantai in suhu_gedung[0]:
+    print(lantai)
 
