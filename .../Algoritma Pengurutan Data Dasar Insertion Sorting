@@ -1,1 +1,28 @@
+# Insertion Sorting 
+
+def insertion_sort(arr):
+    # Loop dimulai dari elemen kedua (indeks 1)
+    for i in range(1, len(arr)):
+        kunci = arr[i]   # nilai yang ingin disisipkan
+        j = i - 1        # elemen sebelum kunci
+
+        # Geser elemen yang lebih besar dari kunci ke kanan
+        while j >= 0 and arr[j] > kunci:
+            arr[j + 1] = arr[j]   # geser ke kanan
+            j -= 1
+
+        # Letakkan kunci di posisi yang tepat
+        arr[j + 1] = kunci
+
+
+# Contoh data pengguna 
+data = [14, 9, 27, 3, 18, 7]
+
+print("Data sebelum diurutkan:")
+print(data)
+
+insertion_sort(data)
+
+print("\nData setelah diurutkan (Insertion Sort):")
+print(data)
 
