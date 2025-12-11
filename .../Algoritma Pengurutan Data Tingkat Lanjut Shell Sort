@@ -1,1 +1,59 @@
+# Shell Sort 
+# Kelas Objek Buah
+class Buah:
+    def __init__(self, nama, berat, warna):
+        self.nama = nama
+        self.berat = berat
+        self.warna = warna
+
+    def __str__(self):
+        return f"[Nama: {self.nama}, Berat: {self.berat}g, Warna: {self.warna}]"
+
+
+def shell_sort_buah(data):
+    n = len(data)
+    gap = 1
+
+    # Tentukan gap awal dengan urutan Knuth
+    while gap < n // 3:
+        gap = 3 * gap + 1
+    print(f"Gap awal yang dipilih: {gap}")
+
+    while gap > 0:
+        print(f"\n=== Proses dengan gap = {gap} ===")
+        for i in range(gap, n):
+            kunci = data[i]
+            j = i
+
+            # Geser elemen buah yang beratnya lebih besar dari kunci
+            while j >= gap and data[j - gap].berat > kunci.berat:
+                data[j] = data[j - gap]
+                j -= gap
+            data[j] = kunci
+            print(f"  Setelah mengurutkan indeks {i}: {[str(b) for b in data]}")
+        
+        gap = gap // 3
+
+
+# Contoh Penggunaan
+if __name__ == "__main__":
+    buah_buahan = [
+        Buah("Apel", 150, "Merah"),
+        Buah("Pisang", 120, "Kuning"),
+        Buah("Mangga", 300, "Hijau Kuning"),
+        Buah("Strawberry", 20, "Merah Muda"),
+        Buah("Nangka", 500, "Hijau"),
+        Buah("Jeruk", 180, "Oranye")
+    ]
+
+    print("=== DATA BUAH AWAL ===")
+    for b in buah_buahan:
+        print(b)
+
+    print("\n=== MULAI PROSES SHELL SORT ===")
+    shell_sort_buah(buah_buahan)
+
+    print("\n=== DATA BUAH TERURUT BERDASARKAN BERAT ===")
+    for b in buah_buahan:
+        print(b)
 
