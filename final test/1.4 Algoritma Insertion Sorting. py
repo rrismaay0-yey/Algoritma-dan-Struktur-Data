@@ -1,1 +1,19 @@
+def insertion_sort_nama(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        # Geser elemen yang lebih besar secara alfabet ke kanan
+        while j >= 0 and arr[j].lower() > key.lower():
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+
+# -----------------------------
+# Contoh penggunaan
+# -----------------------------
+nama = ["Udi", "Andi", "Ira", "Lea"]
+print("Sebelum diurutkan:", nama)
+
+insertion_sort_nama(nama)
+print("Setelah diurutkan:", nama)
 
