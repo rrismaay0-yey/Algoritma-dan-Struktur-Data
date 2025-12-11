@@ -1,0 +1,107 @@
+# Perancangan Array
+
+# Fungsi menampilkan isi array
+# -----------------------------
+def tampilkan_array(arr):
+    print("\n=== Isi Array Saat Ini ===")
+    for i, nilai in enumerate(arr):
+        print(f"Index {i} -> {nilai}")
+    print("==========================\n")
+
+
+# -----------------------------
+# Fungsi menambah data ke array
+# -----------------------------
+def tambah_data(arr, data):
+    arr.append(data)
+    print(f"Data '{data}' berhasil ditambahkan!")
+
+
+# -----------------------------
+# Fungsi mengupdate data array
+# -----------------------------
+def update_data(arr, index, data_baru):
+    if 0 <= index < len(arr):
+        print(f"Data lama '{arr[index]}' diganti dengan '{data_baru}'")
+        arr[index] = data_baru
+    else:
+        print("Index tidak valid!")
+
+
+# -----------------------------
+# Fungsi menghapus data
+# -----------------------------
+def hapus_data(arr, index):
+    if 0 <= index < len(arr):
+        print(f"Data '{arr[index]}' berhasil dihapus!")
+        arr.pop(index)
+    else:
+        print("Index tidak valid!")
+
+
+# -----------------------------
+# Fungsi mencari data
+# -----------------------------
+def cari_data(arr, key):
+    if key in arr:
+        idx = arr.index(key)
+        print(f"Data '{key}' ditemukan pada index ke-{idx}")
+    else:
+        print(f"Data '{key}' tidak ditemukan dalam array.")
+
+
+# -----------------------------
+# Program utama (main)
+# -----------------------------
+def main():
+    # Array awal
+    array_data = ["apel", "jeruk", "mangga"]
+
+    while True:
+        print("""
+=========================================
+        MENU PERANCANGAN ARRAY
+=========================================
+1. Tampilkan Array
+2. Tambah Data
+3. Update Data
+4. Hapus Data
+5. Cari Data
+6. Keluar
+=========================================
+        """)
+
+        pilihan = input("Pilih menu (1-6): ")
+
+        if pilihan == "1":
+            tampilkan_array(array_data)
+
+        elif pilihan == "2":
+            data = input("Masukkan data baru: ")
+            tambah_data(array_data, data)
+
+        elif pilihan == "3":
+            index = int(input("Masukkan index yang ingin diupdate: "))
+            data_baru = input("Masukkan data baru: ")
+            update_data(array_data, index, data_baru)
+
+        elif pilihan == "4":
+            index = int(input("Masukkan index yang ingin dihapus: "))
+            hapus_data(array_data, index)
+
+        elif pilihan == "5":
+            key = input("Masukkan data yang dicari: ")
+            cari_data(array_data, key)
+
+        elif pilihan == "6":
+            print("Program selesai. Terima kasih!")
+            break
+
+        else:
+            print("Pilihan tidak valid!")
+
+
+# -----------------------------
+# Menjalankan program
+# -----------------------------
+main()
