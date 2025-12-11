@@ -1,1 +1,8 @@
+# floating point
+berat_nangka = 1.25     # dalam kilogram
+berat_jeruk = 0.85
+
+total_berat = berat_nangka + berat_jeruk
+
+print("Total berat buah:", total_berat, "kg")
 
