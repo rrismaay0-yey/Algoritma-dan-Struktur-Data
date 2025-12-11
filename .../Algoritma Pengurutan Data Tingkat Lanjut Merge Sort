@@ -1,1 +1,45 @@
+#Merge Sort
+
+class Mahasiswa:
+    def __init__(self, npm, nama):
+        self.npm = npm
+        self.nama = nama
+
+    def __str__(self):
+        return f"[NPM: {self.npm}, Nama: {self.nama}]"
+
+
+def merge_objek(kiri, kanan):
+    hasil = []
+    i = j = 0
+    while i < len(kiri) and j < len(kanan):
+        # Bandingkan berdasarkan NPM
+        if kiri[i].npm < kanan[j].npm:
+            hasil.append(kiri[i])
+            i += 1
+        else:
+            hasil.append(kanan[j])
+            j += 1
+    hasil.extend(kiri[i:])
+    hasil.extend(kanan[j:])
+    print(f"Menggabungkan: {[str(m) for m in kiri]} + {[str(m) for m in kanan]} = {[str(m) for m in hasil]}")
+    return hasil
+
+
+def merge_sort_objek(data):
+    if len(data) <= 1:
+        return data
+    tengah = len(data) // 2
+    return merge_objek(merge_sort_objek(data[:tengah]), merge_sort_objek(data[tengah:]))
+
+
+# Contoh Penggunaan
+mhs = [
+    Mahasiswa("2021003", "Mark"),
+    Mahasiswa("2021001", "Yoshi"),
+    Mahasiswa("2021002", "Echan")
+]
+print(f"Data awal mahasiswa: {[str(m) for m in mhs]}\n")
+mhs_terurut = merge_sort_objek(mhs)
+print(f"\nData mahasiswa terurut by NPM: {[str(m) for m in mhs_terurut]}")
 
