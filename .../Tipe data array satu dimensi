@@ -1,1 +1,31 @@
+# tipe data Array satu dimensi
+
+# Membuat array berisi nilai siswa
+nilai_siswa = [78, 85, 90, 66, 88]
+
+# Menampilkan seluruh isi array
+print("Daftar nilai siswa:")
+for nilai in nilai_siswa:
+    print("-", nilai)
+
+# Mengambil data dari array
+nilai_pertama = nilai_siswa[0]
+nilai_terakhir = nilai_siswa[-1]
+
+print("\nNilai pertama :", nilai_pertama)
+print("Nilai terakhir:", nilai_terakhir)
+
+# Mengubah isi array
+nilai_siswa[2] = 95  # sebelumnya 90
+print("\nSetelah nilai ke-3 diubah menjadi 95:")
+print(nilai_siswa)
+
+# Menambahkan nilai baru
+nilai_siswa.append(80)
+print("\nSetelah menambah nilai baru:")
+print(nilai_siswa)
+
+# Menghitung rata-rata nilai
+rata_rata = sum(nilai_siswa) / len(nilai_siswa)
+print("\nRata-rata nilai:", round(rata_rata, 2))
 
