@@ -1,1 +1,85 @@
+# Stack Single 
+# Buat kelas untuk menyusun data Mahasiswa
+class Mahasiswa:
+    def __init__(self, npm, nama, jurusan):
+        self.npm = npm
+        self.nama = nama
+        self.jurusan = jurusan
+
+    # Fungsi untuk menampilkan data mahasiswa dengan format rapi
+    def __str__(self):
+        return f"[NPM: {self.npm}, Nama: {self.nama}, Jurusan: {self.jurusan}]"
+
+
+# Implementasi Stack Single yang bisa menyimpan data Mahasiswa
+class StackSingle:
+    def __init__(self):
+        self.stack = []
+
+    # Push: tambah data Mahasiswa ke stack
+    def push(self, mahasiswa):
+        # Cek apakah data yang dimasukkan adalah data Mahasiswa
+        if isinstance(mahasiswa, Mahasiswa):
+            self.stack.append(mahasiswa)
+            print(f"Mahasiswa ditambahkan: {mahasiswa}")
+        else:
+            print("Data yang dimasukkan bukan data Mahasiswa!")
+
+    # Pop: hapus dan kembalikan data teratas
+    def pop(self):
+        if not self.isEmpty():
+            mahasiswa_terhapus = self.stack.pop()
+            return f"Mahasiswa dihapus: {mahasiswa_terhapus}"
+        else:
+            return "Stack kosong! Tidak ada mahasiswa untuk dihapus"
+
+    # Peek: lihat data teratas tanpa menghapus
+    def peek(self):
+        if not self.isEmpty():
+            return f"Mahasiswa teratas: {self.stack[-1]}"
+        else:
+            return "Stack kosong! Tidak ada mahasiswa teratas"
+
+    # Cek stack kosong
+    def isEmpty(self):
+        return len(self.stack) == 0
+
+    # Tampilkan semua mahasiswa di stack
+    def tampilkan_semua(self):
+        if self.isEmpty():
+            print("\nStack kosong tidak ada data mahasiswa.")
+            return
+        print("\nIsi Stack Mahasiswa saat ini:")
+        for idx, mahasiswa in enumerate(reversed(self.stack), 1):
+            print(f"{idx}. {mahasiswa}")  # reversed() untuk menampilkan dari atas ke bawah
+
+
+# Contoh Penggunaan
+if __name__ == "__main__":
+    # Buat data Mahasiswa
+    m1 = Mahasiswa("2021001", "Mark", "Teknik Informatika")
+    m2 = Mahasiswa("2021002", "Mingyu", "Sistem Informasi")
+    m3 = Mahasiswa("2021003", "Jaehyun", "Teknik Komputer")
+
+    # Inisialisasi stack
+    stack_mahasiswa = StackSingle()
+
+    # Push data ke stack
+    stack_mahasiswa.push(m1)
+    stack_mahasiswa.push(m2)
+    stack_mahasiswa.push(m3)
+    stack_mahasiswa.push("bukan mahasiswa")  # Tes tipe data salah
+
+    # Tampilkan semua mahasiswa
+    stack_mahasiswa.tampilkan_semua()
+
+    # Peek mahasiswa teratas
+    print("\n" + stack_mahasiswa.peek())
+
+    # Pop mahasiswa
+    print("\n" + stack_mahasiswa.pop())
+    print(stack_mahasiswa.pop())
+
+    # Tampilkan stack setelah pop
+    stack_mahasiswa.tampilkan_semua()
 
