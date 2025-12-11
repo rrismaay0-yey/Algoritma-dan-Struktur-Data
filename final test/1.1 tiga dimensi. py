@@ -1,1 +1,21 @@
+# Print("Array 3 Dimensi")
+# Membuat Array 3 dimensi 
+array3D = [
+    [
+        [1, 2, 3],
+        [4, 5, 6]
+    ],
+    [
+        [7, 8, 9],
+        [10, 11, 12]
+    ]
+]
 
+# Menampilkan isi array
+print("\nIsi Array 3D:")
+for x in array3D:
+    for y in x:
+        for z in y:
+            print(z, end=" ")
+        print()
+    print()
