@@ -1,1 +1,24 @@
+# Interpolation Search 
+def interpolation_search(data, target):
+    kiri = 0
+    kanan = len(data) - 1
+
+    while kiri <= kanan and data[kiri] <= target <= data[kanan]:
+        pos = kiri + ((target - data[kiri]) * (kanan - kiri)) // (data[kanan] - data[kiri])
+
+        if data[pos] == target:
+            return pos
+        elif data[pos] < target:
+            kiri = pos + 1
+        else:
+            kanan = pos - 1
+
+    return -1
+
+# Contoh
+data = [10, 20, 30, 40, 50, 60, 70]
+target = 50
+
+hasil = interpolation_search(data, target)
+print("Hasil:", hasil)
 
