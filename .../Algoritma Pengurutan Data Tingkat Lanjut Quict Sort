@@ -1,1 +1,71 @@
+# Quict Sort
+# Buat kelas objek Buah
+class Buah:
+    def __init__(self, nama, berat, warna):
+        self.nama = nama
+        self.berat = berat  # Atribut yang akan digunakan untuk pengurutan
+        self.warna = warna
+
+    # Fungsi untuk menampilkan data buah dengan format rapi
+    def __str__(self):
+        return f"[Nama: {self.nama}, Berat: {self.berat}g, Warna: {self.warna}]"
+
+
+def partition_buah(data, kiri, kanan):
+    """Fungsi partition untuk objek Buah (berdasarkan berat)"""
+    # Pilih pivot sebagai elemen tengah
+    tengah = (kiri + kanan) // 2
+    pivot = data[tengah]
+    
+    # Tukar pivot ke posisi akhir
+    data[tengah], data[kanan] = data[kanan], data[tengah]
+    penanda = kiri
+
+    print(f"\nPivot yang dipilih: {pivot} (berat {pivot.berat}g)")
+    print(f"Data buah saat ini: {[str(b) for b in data[kiri:kanan+1]]}")
+
+    # Bandingkan setiap buah berdasarkan berat dengan pivot
+    for i in range(kiri, kanan):
+        if data[i].berat <= pivot.berat:
+            # Tukar buah yang lebih ringan/sama berat ke posisi penanda
+            data[penanda], data[i] = data[i], data[penanda]
+            penanda += 1
+            print(f"  Tukar! Sekarang data: {[str(b) for b in data[kiri:kanan+1]]} | Penanda: {penanda}")
+
+    # Tukar pivot ke posisi yang tepat
+    data[penanda], data[kanan] = data[kanan], data[penanda]
+    print(f"  Pivot ditempatkan di posisi {penanda} | Hasil pembagian: {[str(b) for b in data[kiri:kanan+1]]}")
+    return penanda
+
+
+def quick_sort_buah(data, kiri, kanan):
+    """Fungsi utama Quick Sort untuk objek Buah"""
+    if kiri < kanan:
+        posisi_pivot = partition_buah(data, kiri, kanan)
+        quick_sort_buah(data, kiri, posisi_pivot - 1)  # Urutkan kiri pivot
+        quick_sort_buah(data, posisi_pivot + 1, kanan)  # Urutkan kanan pivot
+
+
+# Contoh Penggunaan
+if __name__ == "__main__":
+    # Buat objek buah-buahan dengan berat berbeda
+    buah_buahan = [
+        Buah("Apel", 150, "Merah"),
+        Buah("Pisang", 120, "Kuning"),
+        Buah("Mangga", 300, "Hijau Kuning"),
+        Buah("Strawberry", 20, "Merah Muda"),
+        Buah("Nangka", 500, "Hijau")
+    ]
+
+    print("=== DATA BUAH AWAL ===")
+    for b in buah_buahan:
+        print(b)
+
+    # Jalankan Quick Sort
+    print("\n=== MULAI PROSES QUICK SORT ===")
+    quick_sort_buah(buah_buahan, 0, len(buah_buahan) - 1)
+
+    print("\n=== DATA BUAH TERURUT BERDASARKAN BERAT (KECIL KE BESAR) ===")
+    for b in buah_buahan:
+        print(b)
 
