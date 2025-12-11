@@ -1,1 +1,25 @@
+# Searching 
+def bidirectional_search(arr, target):
+    kiri = 0
+    kanan = len(arr) - 1
+
+    while kiri <= kanan:
+        if arr[kiri] == target:
+            return kiri
+        if arr[kanan] == target:
+            return kanan
+        kiri += 1
+        kanan -= 1
+
+    return -1
+
+# --- Contoh penggunaan ---
+data = [10, 20, 30, 40, 50, 60, 70]
+target = 40
+
+hasil = bidirectional_search(data, target)
+if hasil != -1:
+    print(f"Angka {target} ditemukan di indeks {hasil}")
+else:
+    print(f"Angka {target} tidak ditemukan")
 
