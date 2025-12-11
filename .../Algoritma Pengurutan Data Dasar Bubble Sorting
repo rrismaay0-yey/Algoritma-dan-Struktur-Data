@@ -1,1 +1,49 @@
+# ================================
+#   BUBBLE SORT OBJEK WISATA
+# ================================
+
+# Data objek wisata (nama + rating)
+wisata = [
+    {"nama": "Pantai Putih",      "rating": 4.7},
+    {"nama": "Air Terjun Biru",   "rating": 4.2},
+    {"nama": "Bukit Pelangi",     "rating": 4.9},
+    {"nama": "Taman Kota",        "rating": 3.8},
+    {"nama": "Goa Batu Emas",     "rating": 4.5}
+]
+
+# -------------------------
+#  ALGORITMA BUBBLE SORT
+# -------------------------
+def bubble_sort(data):
+    n = len(data)
+
+    # Lakukan perulangan sebanyak jumlah data - 1
+    for i in range(n - 1):
+        # Bandingkan data secara berpasangan
+        for j in range(n - i - 1):
+
+            # Jika rating sekarang lebih besar dari rating berikutnya → tukar
+            if data[j]["rating"] > data[j + 1]["rating"]:
+                data[j], data[j + 1] = data[j + 1], data[j]
+
+    return data
+
+
+# -------------------------
+#  SEBELUM DIURUTKAN
+# -------------------------
+print("DATA SEBELUM DIURUTKAN:")
+for w in wisata:
+    print(f"- {w['nama']} (Rating: {w['rating']})")
+
+print("\n--------------------------------\n")
+
+# -------------------------
+#  SETELAH DIURUTKAN
+# -------------------------
+hasil = bubble_sort(wisata)
+
+print("DATA SETELAH DIURUTKAN (Bubble Sort):")
+for w in hasil:
+    print(f"- {w['nama']} (Rating: {w['rating']})")
 
