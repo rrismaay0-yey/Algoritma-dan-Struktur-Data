@@ -1,0 +1,17 @@
+# Nurrisma
+# D0425308
+# Program Tipe Data Karakter (Input)
+
+kar = input("Masukkan 1 karakter: ")
+
+if len(kar) != 1:
+    print("Harus 1 karakter saja!")
+else:
+    print("Karakter yang dimasukkan:", kar)
+
+    if kar.isalpha():
+        print("Jenis: Huruf")
+    elif kar.isdigit():
+        print("Jenis: Angka")
+    else:
+        print("Jenis: Simbol")
