@@ -1,0 +1,102 @@
+class Hewan:
+    def __init__(self, nama, jenis, umur):
+        self.nama = nama
+        self.jenis = jenis
+        self.umur = umur
+
+# List untuk menampung data
+daftar_hewan = []
+
+
+# -------------------------------
+# Fungsi menambah hewan
+# -------------------------------
+def tambah_hewan():
+    nama = input("Nama hewan: ")
+    jenis = input("Jenis: ")
+    umur = input("Umur: ")
+
+    h = Hewan(nama, jenis, umur)
+    daftar_hewan.append(h)
+    print("✔ Data hewan berhasil ditambahkan.\n")
+
+
+# -------------------------------
+# Fungsi menampilkan daftar hewan
+# -------------------------------
+def tampil_hewan():
+    if not daftar_hewan:
+        print("Belum ada data.\n")
+        return
+
+    print("\n=== Daftar Hewan ===")
+    for i, h in enumerate(daftar_hewan):
+        print(f"{i}. {h.nama} - {h.jenis} - {h.umur} tahun")
+    print()
+
+
+# -------------------------------
+# Fungsi mengupdate data
+# -------------------------------
+def update_hewan():
+    tampil_hewan()
+    try:
+        idx = int(input("Pilih index yang mau diupdate: "))
+        h = daftar_hewan[idx]
+
+        h.nama = input("Nama baru: ")
+        h.jenis = input("Jenis baru: ")
+        h.umur = input("Umur baru: ")
+
+        print("✔ Data berhasil diupdate.\n")
+    except:
+        print("Index tidak valid.\n")
+
+
+# -------------------------------
+# Fungsi menghapus data
+# -------------------------------
+def hapus_hewan():
+    tampil_hewan()
+    try:
+        idx = int(input("Pilih index yang mau dihapus: "))
+        daftar_hewan.pop(idx)
+        print("✔ Data berhasil dihapus.\n")
+    except:
+        print("Index tidak valid.\n")
+
+
+# -------------------------------
+# Program utama
+# -------------------------------
+def main():
+    while True:
+        print("""
+======== MENU ========
+1. Tampilkan Hewan
+2. Tambah Hewan
+3. Update Hewan
+4. Hapus Hewan
+5. Keluar
+======================
+        """)
+
+        pilih = input("Pilih menu: ")
+
+        if pilih == "1":
+            tampil_hewan()
+        elif pilih == "2":
+            tambah_hewan()
+        elif pilih == "3":
+            update_hewan()
+        elif pilih == "4":
+            hapus_hewan()
+        elif pilih == "5":
+            print("Program selesai.")
+            break
+        else:
+            print("Pilihan tidak valid.\n")
+
+
+main()
+
